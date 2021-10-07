@@ -1,0 +1,1 @@
+# cordova-datadog-crashlytics
