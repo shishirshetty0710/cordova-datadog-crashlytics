@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.outsystems.datadog" version="1.0-OS"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Datadog</name>
+    <js-module name="datadog" src="www/datadog.js">
+        <clobbers target="datadog" />
+    </js-module>
+
+     <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Datadog">
+                <param name="android-package" value="com.outsystems.datadog.Datadog"/>
+            </feature>
+        </config-file>
+        
+        <hook type="after_plugin_install" src="hooks/android/appendBuildScript.js" />
+
+        <framework src="src/android/dependency.gradle" custom="true" type="gradleReference" />
+        
+        <source-file src="src/android/Datadog.java" target-dir="src/com/outsystems/datadog" />
+
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Datadog">
+                <param name="ios-package" value="Datadog"/>
+				<param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+        
+        <framework src="DatadogSDKCrashReporting" spec="~>1.7.1"  type="podspec"/>
+        <framework src="DatadogSDK" spec="~>1.7.1"  type="podspec"/>
+        
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>remote-notification</string>
+            </array>
+        </config-file>
+        <config-file target="*-Debug.plist" parent="aps-environment">
+            <string>development</string>
+        </config-file>
+        <config-file target="*-Release.plist" parent="aps-environment">
+            <string>production</string>
+        </config-file>
+        
+        
+        <source-file src="src/ios/Datadog.swift" />
+    </platform>
+</plugin>

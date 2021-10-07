@@ -1,0 +1,8 @@
+repositories {
+    mavenCentral()
+    maven { url "https://dl.bintray.com/datadog/datadog-maven" }
+}
+dependencies {
+    implementation "com.datadoghq:dd-sdk-android:1.11.0-beta1"
+}
+apply plugin: "dd-sdk-android-gradle-plugin"
