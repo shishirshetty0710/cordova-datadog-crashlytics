@@ -11,6 +11,9 @@ import DatadogCrashReporting
 
 @objc(Datadog) class DatadogCrash: CDVPlugin{
     
+    var wkSessionId:String = ""
+    var isInitialized:Bool = false
+    
     @objc(Init:)func Init(command : CDVInvokedUrlCommand){
         let clientToken = command.argument(at: 0) as! String
         let enviourment = command.argument(at: 1) as! String
@@ -29,12 +32,22 @@ import DatadogCrashReporting
             .build()
         )
         Global.rum = RUMMonitor.initialize()
+        if wkSessionId != "" {
+            Global.rum.addAttribute(forKey: "wk_UniqueIDForSession", value: wkSessionId)
+        }
     }
     @objc(crashtest:)func crashtest(command : CDVInvokedUrlCommand){
         fatalError();
     }
-    @objc(getSessionId:)func getSessionId(command : CDVInvokedUrlCommand){
-        command.callbackId;
+    @objc(setCustomFieldSessionId:)func setCustomFieldSessionId(command : CDVInvokedUrlCommand){
+        
+        wkSessionId = command.argument(at: 0) as! String
+        if isInitialized {
+            if wkSessionId != "" {
+                Global.rum.removeAttribute(forKey: "wk_UniqueIDForSession")
+            }
+            Global.rum.addAttribute(forKey: "wk_UniqueIDForSession", value: wkSessionId)
+        }
     }
     
 }

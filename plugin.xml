@@ -34,20 +34,7 @@
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
         
         <framework src="DatadogSDKCrashReporting" spec="~>1.7.1"  type="podspec"/>
-        <framework src="DatadogSDK" spec="~>1.7.1"  type="podspec"/>
-        
-        <config-file target="*-Info.plist" parent="UIBackgroundModes">
-            <array>
-                <string>remote-notification</string>
-            </array>
-        </config-file>
-        <config-file target="*-Debug.plist" parent="aps-environment">
-            <string>development</string>
-        </config-file>
-        <config-file target="*-Release.plist" parent="aps-environment">
-            <string>production</string>
-        </config-file>
-        
+        <framework src="DatadogSDK" spec="~>1.7.1"  type="podspec"/>      
         
         <source-file src="src/ios/Datadog.swift" />
     </platform>

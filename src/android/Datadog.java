@@ -20,7 +20,7 @@ public class Datadog extends CordovaPlugin {
     private CallbackContext callback;
     RumMonitor monitor;
     private String currSessionId = "";
-    private String webSessionId = "";
+    private String wkSessionID = "";
     private Boolean initialized = false;
 
     /**
@@ -38,8 +38,8 @@ public class Datadog extends CordovaPlugin {
                 if(!initialized){
                     init(args.getString(0),args.getString(1),args.getString(2));
                     initialized=true;
-                    if(!webSessionId.equals("")){
-                        GlobalRum.addAttribute("BrowserSessionId", webSessionId);
+                    if(!wkSessionID.equals("")){
+                        GlobalRum.addAttribute("wk_UniqueIDForSession", wkSessionID);
                     }
                 }
                 return true;
@@ -50,12 +50,12 @@ public class Datadog extends CordovaPlugin {
                 getSessionId();
                 return true;
             case "setCustomFieldSessionId":
-                if (!webSessionId.equals("")){
-                    GlobalRum.removeAttribute("BrowserSessionId");
+                if (!wkSessionID.equals("")){
+                    GlobalRum.removeAttribute("wk_UniqueIDForSession");
                 }
-                webSessionId = args.getString(0);
+                wkSessionID = args.getString(0);
                 if(initialized){
-                    GlobalRum.addAttribute("BrowserSessionId", webSessionId);
+                    GlobalRum.addAttribute("wk_UniqueIDForSession", wkSessionID);
                 }
                 return true;
         }
