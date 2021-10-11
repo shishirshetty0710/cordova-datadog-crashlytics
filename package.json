@@ -10,8 +10,5 @@
     "ecosystem:cordova"
   ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "uuid":"^8.3.2"
-  }
+  "license": "ISC"
 }

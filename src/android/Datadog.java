@@ -14,6 +14,8 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.UUID;
+
 public class Datadog extends CordovaPlugin {
     public static final String TAG = "Datadog Plugin";
 
@@ -82,7 +84,9 @@ public class Datadog extends CordovaPlugin {
     }
 
     private void getSessionId(){
-        PluginResult result = new PluginResult(PluginResult.Status.OK,currSessionId);
+        String mskuuid = UUID.randomUUID().toString().toUpperCase();
+        //PluginResult result = new PluginResult(PluginResult.Status.OK,currSessionId);
+        PluginResult result = new PluginResult(PluginResult.Status.OK,mskuuid);
         result.setKeepCallback(false);
         callback.sendPluginResult(result);
     }
