@@ -30,11 +30,17 @@
 				<param name="onload" value="true"/>
             </feature>
         </config-file>
-
+        <preference name="UseSwiftLanguageVersion"/>
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
-        
-        <framework src="DatadogSDKCrashReporting" spec="~>1.7.1"  type="podspec"/>
-        <framework src="DatadogSDK" spec="~>1.7.1"  type="podspec"/>      
+
+        <podspec>
+            <config>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="DatadogSDK" spec="~> 1.7.1" />
+                <pod name="DatadogSDKCrashReporting" spec="~> 1.7.1" />
+            </pods>
+        </podspec>
         
         <source-file src="src/ios/Datadog.swift" />
     </platform>
