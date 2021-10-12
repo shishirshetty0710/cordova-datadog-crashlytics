@@ -63,4 +63,10 @@ import DatadogCrashReporting
         let result = CDVPluginResult.init(status: CDVCommandStatus_OK, messageAs: uuid)
         self.commandDelegate.send(result, callbackId: command.callbackId)
     }
+
+    @objc(setTrackingConsent:)func setTrackingConsent(command : CDVInvokedUrlCommand){
+        
+        let result = CDVPluginResult.init(status: CDVCommandStatus_OK)
+        self.commandDelegate.send(result, callbackId: command.callbackId)
+    }
 }
