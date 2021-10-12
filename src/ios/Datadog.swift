@@ -19,9 +19,22 @@ import DatadogCrashReporting
             let clientToken = command.argument(at: 0) as! String
             let enviourment = command.argument(at: 1) as! String
             let appID = command.argument(at: 2) as! String
+            let trackingConsentInt = command.argument(at: 3) as! Int
+            var trackingConsent:TrackingConsent
+            switch trackingConsentInt {
+            case 0:
+                trackingConsent = .notGranted
+                break;
+            case 1:
+                trackingConsent = .granted
+                break;
+            default:
+                trackingConsent = .pending
+                break;
+            }
             Datadog.initialize(
                 appContext: .init(),
-                trackingConsent: .granted,
+                trackingConsent: trackingConsent,
                 configuration: Datadog.Configuration
                 .builderUsing(
                     rumApplicationID: appID,
@@ -65,7 +78,20 @@ import DatadogCrashReporting
     }
 
     @objc(setTrackingConsent:)func setTrackingConsent(command : CDVInvokedUrlCommand){
-        
+        let trackingConsentInt = command.argument(at: 0) as! Int
+        var trackingConsent:TrackingConsent
+        switch trackingConsentInt {
+        case 0:
+            trackingConsent = .notGranted
+            break;
+        case 1:
+            trackingConsent = .granted
+            break;
+        default:
+            trackingConsent = .pending
+            break;
+        }
+        Datadog.set(trackingConsent: trackingConsent)
         let result = CDVPluginResult.init(status: CDVCommandStatus_OK)
         self.commandDelegate.send(result, callbackId: command.callbackId)
     }
