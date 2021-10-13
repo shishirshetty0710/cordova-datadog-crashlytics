@@ -56,9 +56,6 @@ import DatadogCrashReporting
             self.commandDelegate.send(result, callbackId: command.callbackId)
         }
     }
-    @objc(crashtest:)func crashtest(command : CDVInvokedUrlCommand){
-        fatalError();
-    }
     @objc(setCustomFieldSessionId:)func setCustomFieldSessionId(command : CDVInvokedUrlCommand){
         
         wkSessionId = command.argument(at: 0) as! String

@@ -3,9 +3,6 @@ var exec = require('cordova/exec');
 exports.init = function (success, error,clientToken,enviourment,appID,trackingConsentInt) {
     exec(success, error, 'Datadog', 'Init', [clientToken,enviourment,appID,trackingConsentInt]);
 };
-exports.crashtest = function (success, error) {
-    exec(success, error, 'Datadog', 'crashtest',[]);
-};
 
 exports.getSessionId = function (success, error) {
     exec(success, error, 'Datadog', 'getSessionId',[]);
