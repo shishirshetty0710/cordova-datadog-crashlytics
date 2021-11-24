@@ -45,6 +45,7 @@ import DatadogCrashReporting
                 .enableCrashReporting(using: DDCrashReportingPlugin())
                 .build()
             )
+            Datadog.verbosityLevel = .debug
             Global.rum = RUMMonitor.initialize()
             if self.wkSessionId.compare(" ") != .orderedSame {
                 Global.rum.addAttribute(forKey: "wk_UniqueIDForSession", value: wkSessionId)

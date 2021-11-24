@@ -121,6 +121,7 @@ public class Datadog extends CordovaPlugin {
         }
         com.datadog.android.Datadog.initialize(cordova.getActivity().getApplicationContext(),cred,config, trackingConsent);
         initRUM();
+        com.datadog.android.Datadog.setVerbosity(Log.DEBUG)
     }
 
     private void initRUM(){
