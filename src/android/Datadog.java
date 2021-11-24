@@ -56,9 +56,6 @@ public class Datadog extends CordovaPlugin {
                 result.setKeepCallback(false);
                 callback.sendPluginResult(result);
                 return true;
-            case "crashtest":
-                testCrash();
-                return true;
             case "getSessionId":
                 getSessionId();
                 return true;
@@ -121,7 +118,7 @@ public class Datadog extends CordovaPlugin {
         }
         com.datadog.android.Datadog.initialize(cordova.getActivity().getApplicationContext(),cred,config, trackingConsent);
         initRUM();
-        com.datadog.android.Datadog.setVerbosity(Log.DEBUG);
+        com.datadog.android.Datadog.setVerbosity(Log.INFO);
     }
 
     private void initRUM(){
@@ -140,10 +137,5 @@ public class Datadog extends CordovaPlugin {
         PluginResult result = new PluginResult(PluginResult.Status.OK,mskuuid);
         result.setKeepCallback(false);
         callback.sendPluginResult(result);
-    }
-
-    private void testCrash(){
-        int i = 100/0;
-        //0throw new RuntimeException("crash testing");
     }
 }
