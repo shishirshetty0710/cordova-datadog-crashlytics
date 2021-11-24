@@ -121,7 +121,7 @@ public class Datadog extends CordovaPlugin {
         }
         com.datadog.android.Datadog.initialize(cordova.getActivity().getApplicationContext(),cred,config, trackingConsent);
         initRUM();
-        com.datadog.android.Datadog.setVerbosity(Log.DEBUG)
+        com.datadog.android.Datadog.setVerbosity(Log.DEBUG);
     }
 
     private void initRUM(){
@@ -144,6 +144,6 @@ public class Datadog extends CordovaPlugin {
 
     private void testCrash(){
         int i = 100/0;
-        //throw new RuntimeException("crash testing");
+        //0throw new RuntimeException("crash testing");
     }
 }
