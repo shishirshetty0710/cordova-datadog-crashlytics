@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.UUID;
+import android.util.Log;
 
 public class Datadog extends CordovaPlugin {
     public static final String TAG = "Datadog Plugin";
@@ -118,7 +119,7 @@ public class Datadog extends CordovaPlugin {
         }
         com.datadog.android.Datadog.initialize(cordova.getActivity().getApplicationContext(),cred,config, trackingConsent);
         initRUM();
-        com.datadog.android.Datadog.setVerbosity(Log.INFO);
+        com.datadog.android.Datadog.setVerbosity(Log.DEBUG);
     }
 
     private void initRUM(){
