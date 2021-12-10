@@ -43,6 +43,7 @@ import DatadogCrashReporting
                 )
                 .trackUIKitRUMViews()
                 .enableCrashReporting(using: DDCrashReportingPlugin())
+                .trackBackgroundEvents()
                 .build()
             )
             Global.rum = RUMMonitor.initialize()
