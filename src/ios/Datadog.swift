@@ -42,6 +42,7 @@ import DatadogCrashReporting
                     environment: enviourment
                 )
                 .trackUIKitRUMViews()
+                .trackBackgroundEvents()
                 .enableCrashReporting(using: DDCrashReportingPlugin())
                 .build()
             )
