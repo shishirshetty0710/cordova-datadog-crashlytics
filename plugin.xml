@@ -37,8 +37,8 @@
             <config>
             </config>
             <pods use-frameworks="true">
-                <pod name="DatadogSDK" spec="~> 1.7.1" />
-                <pod name="DatadogSDKCrashReporting" spec="~> 1.7.1" />
+                <pod name="DatadogSDK" spec="~> 1.8.0" />
+                <pod name="DatadogSDKCrashReporting" spec="~> 1.8.0" />
             </pods>
         </podspec>
         
