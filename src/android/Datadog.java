@@ -102,6 +102,7 @@ public class Datadog extends CordovaPlugin {
         Configuration config = new Configuration.Builder(false,true,true,true)
                 .trackInteractions()
                 .trackLongTasks()
+                .trackBackgroundRumEvents(true)
                 .build();
         Credentials cred = new Credentials(clientToken,envName,Credentials.NO_VARIANT,appID,null);
         TrackingConsent trackingConsent;
