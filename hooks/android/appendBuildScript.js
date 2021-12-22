@@ -15,7 +15,7 @@ module.exports = function (context) {
 
         var regexRepo = new RegExp("repositories {","g");
         var regexDep = new RegExp("dependencies {","g");
-        content = content.replace(regexRepo,"repositories {\n mavenCentral()\n maven { url \"https://dl.bintray.com/datadog/datadog-maven\" }");
+        //content = content.replace(regexRepo,"repositories {\n mavenCentral()\n maven { url \"https://dl.bintray.com/datadog/datadog-maven\" }");
         content = content.replace(regexDep,"dependencies { \n classpath(\"com.datadoghq:dd-sdk-android-gradle-plugin:1.1.0\")");
         fs.writeFileSync(gradleFilePath, content);
         console.log("Finished appending buildscript!");
