@@ -57,9 +57,6 @@ import DatadogCrashReporting
             self.commandDelegate.send(result, callbackId: command.callbackId)
         }
     }
-    @objc(crashtest:)func crashtest(command : CDVInvokedUrlCommand){
-        fatalError();
-    }
     @objc(setCustomFieldSessionId:)func setCustomFieldSessionId(command : CDVInvokedUrlCommand){
         
         wkSessionId = command.argument(at: 0) as! String
@@ -72,6 +69,12 @@ import DatadogCrashReporting
         let result = CDVPluginResult.init(status: CDVCommandStatus_OK)
         self.commandDelegate.send(result, callbackId: command.callbackId)
     }
+    @objc(getSessionId:)func getSessionId(command : CDVInvokedUrlCommand){
+        let uuid = UUID().uuidString
+        let result = CDVPluginResult.init(status: CDVCommandStatus_OK, messageAs: uuid)
+        self.commandDelegate.send(result, callbackId: command.callbackId)
+    }
+
     @objc(setTrackingConsent:)func setTrackingConsent(command : CDVInvokedUrlCommand){
         let trackingConsentInt = command.argument(at: 0) as! Int
         var trackingConsent:TrackingConsent
