@@ -19,3 +19,6 @@ exports.setTrackingConsent = function (success, error,trackingConsentInt) {
     exec(success, error, 'Datadog', 'setTrackingConsent',[trackingConsentInt]);
 };
 
+exports.crashtest = function (success, error) {
+    exec(success, error, 'Datadog', 'crashtest',[]);
+};
