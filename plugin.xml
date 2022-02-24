@@ -15,7 +15,7 @@
             </feature>
         </config-file>
         
-        <hook type="after_plugin_install" src="hooks/android/appendBuildScript.js" />
+        <!--<hook type="after_plugin_install" src="hooks/android/appendBuildScript.js" />-->
 
         <framework src="src/android/dependency.gradle" custom="true" type="gradleReference" />
         
