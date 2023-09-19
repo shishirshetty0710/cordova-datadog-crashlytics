@@ -47,9 +47,12 @@ import DatadogCrashReporting
                 .build()
             )
             Global.rum = RUMMonitor.initialize()
-            if self.wkSessionId.compare(" ") != .orderedSame {
+            if self.wkSessionId != nil {
+                 if self.wkSessionId.compare(" ") != .orderedSame {
                 Global.rum.addAttribute(forKey: "wk_UniqueIDForSession", value: wkSessionId)
+                }
             }
+           
             let result = CDVPluginResult.init(status: CDVCommandStatus_OK)
             self.commandDelegate.send(result, callbackId: command.callbackId)
         }else{
