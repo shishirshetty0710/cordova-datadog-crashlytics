@@ -33,7 +33,7 @@
 				<param name="onload" value="true"/>
             </feature>
         </config-file>
-       <preference name="UseSwiftLanguageVersion" value="5" />
+       <preference name="UseSwiftLanguageVersion" value="5.8.0" />
 	  
         
 
