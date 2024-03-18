@@ -1,6 +1,6 @@
 # cordova-datadog-crashlytics
 
-Datadog Crashalytics plugin for Outsystems pointing to version 1.11.0
+Datadog Crashalytics plugin for Outsystems pointing to Android: 1.19.0 and iOS: 1.23.0
 
 ## Installation
 
