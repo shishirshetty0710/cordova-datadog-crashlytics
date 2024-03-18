@@ -14,14 +14,14 @@
                 <param name="android-package" value="com.outsystems.datadog.Datadog"/>
             </feature>
         </config-file>
-        
+
         <hook type="after_plugin_install" src="hooks/android/appendBuildScript.js" />
         <hook type="after_plugin_install" src="hooks/android/CompatibilityMabs8.js" />
         <hook type="after_prepare" src="hooks/android/CompatibilityMabs8.js" />
         <hook type="before_build" src="hooks/android/CompatibilityMabs8.js" />
 
         <framework src="src/android/dependency.gradle" custom="true" type="gradleReference" />
-        
+
         <source-file src="src/android/Datadog.java" target-dir="src/com/outsystems/datadog" />
 
     </platform>
@@ -32,10 +32,11 @@
                 <param name="ios-package" value="Datadog"/>
 				<param name="onload" value="true"/>
             </feature>
+            <preference name="deployment-target" value="12" />
         </config-file>
         <preference name="UseSwiftLanguageVersion"/>
-	<dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>    
-        
+	<dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+
 
         <podspec>
             <config>
@@ -45,7 +46,7 @@
                 <pod name="DatadogSDKCrashReporting" spec="~> 1.23.0" />
             </pods>
         </podspec>
-        
+
         <source-file src="src/ios/Datadog.swift" />
     </platform>
 </plugin>
