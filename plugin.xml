@@ -33,8 +33,10 @@
 				<param name="onload" value="true"/>
             </feature>
         </config-file>
-        <preference name="UseSwiftLanguageVersion"/>
-	      <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+        <preference name="ios-CFBundleVersion" value="5.7.1" />
+
+        <!-- <preference name="UseSwiftLanguageVersion"/>
+	      <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/> -->
 
         <hook type="after_platform_add" src="hooks/ios/custom_after_platform_add.js" />
 
