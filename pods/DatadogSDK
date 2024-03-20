@@ -1,0 +1,8 @@
+platform :ios, '12.0'
+use_frameworks!
+
+target 'DatadogCrashlyticsSample' do
+  pod 'DatadogSDK', '1.23.0', :modular_headers => true
+
+  # Other pods can be added here if needed
+end

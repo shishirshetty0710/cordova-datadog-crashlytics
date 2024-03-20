@@ -32,20 +32,21 @@
                 <param name="ios-package" value="Datadog"/>
 				<param name="onload" value="true"/>
             </feature>
-            <preference name="deployment-target" value="12" />
         </config-file>
         <preference name="UseSwiftLanguageVersion"/>
-	<dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+	      <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+
+        <hook type="after_platform_add" src="hooks/ios/custom_after_platform_add.js" />
 
 
-        <podspec>
+        <!-- <podspec>
             <config>
             </config>
             <pods use-frameworks="true">
                 <pod name="DatadogSDK" spec="~> 1.23.0" />
                 <pod name="DatadogSDKCrashReporting" spec="~> 1.23.0" />
             </pods>
-        </podspec>
+        </podspec> -->
 
         <source-file src="src/ios/Datadog.swift" />
     </platform>

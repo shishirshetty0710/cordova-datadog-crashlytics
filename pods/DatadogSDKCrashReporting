@@ -1,0 +1,10 @@
+platform :ios, '12.0'
+use_frameworks!
+
+target 'DatadogCrashlyticsSample' do
+  pod 'DatadogSDKCrashReporting', '1.23.0'
+  pod 'DatadogSDK', '1.23.0'
+  pod 'PLCrashReporter', '~> 1.11.0'
+
+  # Other pods can be added here if needed
+end
