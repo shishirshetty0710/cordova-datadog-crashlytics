@@ -32,6 +32,7 @@
                 <param name="ios-package" value="Datadog"/>
 				<param name="onload" value="true"/>
             </feature>
+             <preference name="deployment-target" value="12.0" />
         </config-file>
         <!-- <preference name="ios-CFBundleVersion" value="5.7.1" /> -->
 
