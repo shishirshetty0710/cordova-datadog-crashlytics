@@ -6,14 +6,14 @@
 //
 
 import Foundation
-import Datadog
-import DatadogCrashReporting
+import Libraries.Datadog
+import Libraries.DatadogCrashReporting
 
 @objc(Datadog) class DatadogCrash: CDVPlugin{
-    
+
     var wkSessionId:String = " "
     var isInitialized:Bool = false
-    
+
     @objc(Init:)func Init(command : CDVInvokedUrlCommand){
         if(!isInitialized){
             let clientToken = command.argument(at: 0) as! String
@@ -52,7 +52,7 @@ import DatadogCrashReporting
                 Global.rum.addAttribute(forKey: "wk_UniqueIDForSession", value: wkSessionId)
                 }
             }
-           
+
             let result = CDVPluginResult.init(status: CDVCommandStatus_OK)
             self.commandDelegate.send(result, callbackId: command.callbackId)
         }else{
@@ -61,7 +61,7 @@ import DatadogCrashReporting
         }
     }
     @objc(setCustomFieldSessionId:)func setCustomFieldSessionId(command : CDVInvokedUrlCommand){
-        
+
         wkSessionId = command.argument(at: 0) as! String
         if isInitialized {
             if self.wkSessionId.compare(" ") != .orderedSame {
