@@ -51,6 +51,6 @@
             </pods>
         </podspec> -->
 
-        <source-file src="src/ios/Libraries/Datadog.swift" />
+        <source-file src="src/ios/Datadog.swift" />
     </platform>
 </plugin>
