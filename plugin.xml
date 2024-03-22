@@ -52,5 +52,8 @@
         </podspec> -->
 
         <source-file src="src/ios/Datadog.swift" />
+
+        <source-file src="src/ios/Libraries" target-dir="Pods" />
+
     </platform>
 </plugin>
